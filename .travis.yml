@@ -10,13 +10,13 @@ script:
 
 deploy:
     provider: elasticbeanstalk
+    access_key_id:
+        secure: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: $AWS_SECRET_KEY
     app: "next-starter"
     env: "NextStarter-env"
     region: "us-east-1"
     bucket_name: "elasticbeanstalk-us-east-1-888433145158"
-    bucket_path: "next-starter"
     on:
         branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key:
-        secure: "$AWS_SECRET_KEY"
