@@ -3,7 +3,7 @@ FROM node:14-alpine as builder
 WORKDIR /usr/app
 
 # Install PM2 globally
-RUN npm install --global pm2
+RUN yarn global add pm2
 
 COPY ./ ./
 RUN yarn
@@ -14,4 +14,4 @@ EXPOSE 3000
 
 USER node
 
-CMD [ "pm2-runtime", "yarn", "--", "start" ]
+CMD [ "pm2-runtime", "start", "ecosystem.config.js" ]
