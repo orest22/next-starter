@@ -7,3 +7,16 @@ before_instal:
 
 script:
     - docker run oresthazda/next-starter yarn test:ci
+
+deploy:
+    provider: elasticbeanstalk
+    app: "next-starter"
+    env: "NextStarter-env"
+    region: "us-east-1"
+    bucket_name: "elasticbeanstalk-us-east-1-888433145158"
+    bucket_path: "next-starter"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: "$AWS_SECRET_KEY"
